@@ -1,10 +1,13 @@
+
+
+
+
 #!/usr/bin/python3
+import hidden_4
+
 if __name__ == "__main__":
-    import hidden_4
-
-    all_names = dir(hidden_4)
-
-    for name in all_names:
-        if name[:2] != "__":
+    for name in sorted(dir(hidden_4)):
+        if not name.startswith("__"):
             print(name)
-            
+
+
