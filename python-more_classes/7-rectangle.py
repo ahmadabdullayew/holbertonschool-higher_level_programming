@@ -1,18 +1,28 @@
 #!/usr/bin/python3
-"""This module defines a Rectangle class.
+"""
+This module defines a Rectangle class.
 """
 
 
 class Rectangle:
-    """Represent a rectangle."""
-    count = 0  # Class attribute to track number of instances
-    print_symbol = "#" # Symbol used for string representation
+    """
+    Represent a rectangle, tracking instance count and using a configurable symbol.
+    """
+    
+    # Public class attribute: Tracks the number of active instances
+    number_of_instances = 0
+    
+    # Public class attribute: Symbol used for string representation
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
-        # Use the property setters to set initial values,
-        # which will perform validation
+        """
+        Initializes a new Rectangle instance, incrementing the instance count.
+        """
+        # Use the property setters to set initial values, which perform validation
         self.width = width
         self.height = height
-        Rectangle.count += 1
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -53,19 +63,28 @@ class Rectangle:
         return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Return the string representation of the rectangle."""
+        """
+        Return the printable string representation of the rectangle,
+        using self.print_symbol.
+        """
         if self.width == 0 or self.height == 0:
             return ""
+        
         lines = []
         for _ in range(self.height):
-            lines.append(Rectangle.print_symbol * self.width)
+            # Key correction: Use self.print_symbol to respect instance changes
+            lines.append(str(self.print_symbol) * self.width)
         return "\n".join(lines)
     
     def __repr__(self):
-        """Return a string representation that can recreate the rectangle."""
-        return f"{Rectangle.count} instances of Rectangle"
+        """
+        Return a string representation that can recreate the instance using eval().
+        """
+        return f"Rectangle({self.width}, {self.height})"
 
     def __del__(self):
-        """Print a message when the rectangle is deleted."""
+        """
+        Prints a message and decrements the instance counter when the instance is deleted.
+        """
         print("Bye rectangle...")
-        Rectangle.count -= 1
+        Rectangle.number_of_instances -= 1
