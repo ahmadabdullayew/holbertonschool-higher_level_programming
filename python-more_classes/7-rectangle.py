@@ -1,4 +1,4 @@
-k#!/usr/bin/python3
+#!/usr/bin/python3
 """
 This module defines a Rectangle class with properties for width and height,
 class attributes for instance counting and representation symbol,
