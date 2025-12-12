@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+k#!/usr/bin/python3
 """This module defines a Rectangle class.
 """
 
@@ -6,6 +6,7 @@
 class Rectangle:
     """Represent a rectangle."""
     count = 0  # Class attribute to track number of instances
+    print_symbol = "#" # Symbol used for string representation
     def __init__(self, width=0, height=0):
         # Use the property setters to set initial values,
         # which will perform validation
@@ -57,7 +58,7 @@ class Rectangle:
             return ""
         lines = []
         for _ in range(self.height):
-            lines.append("#" * self.width)
+            lines.append(Rectangle.print_symbol * self.width)
         return "\n".join(lines)
     
     def __repr__(self):
