@@ -65,7 +65,10 @@ class Rectangle:
         """Return the printable string representation using print_symbol."""
         if self.width == 0 or self.height == 0:
             return ""
-        lines = [str(self.print_symbol) * self.width for _ in range(self.height)]
+        lines = [
+            str(self.print_symbol) * self.width
+            for _ in range(self.height)
+        ]
         return "\n".join(lines)
 
     def __repr__(self):
