@@ -6,8 +6,6 @@
 class Rectangle:
     """Represent a rectangle."""
     def __init__(self, width=0, height=0):
-        # Use the property setters to set initial values,
-        # which will perform validation
         self.width = width
         self.height = height
 
@@ -18,7 +16,6 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """Set the width of the rectangle."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -32,7 +29,6 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """Set the height of the rectangle."""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -50,14 +46,7 @@ class Rectangle:
         return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Return a string representation of the rectangle using '#' characters."""
+        """Return a string representation of the rectangle using '#'."""
         if self.width == 0 or self.height == 0:
             return ""
-        lines = []
-        for _ in range(self.height):
-            lines.append('#' * self.width)
-        return '\n'.join(lines)
-
-    def __repr__(self):
-        """Return a string representation of the rectangle for reproduction."""
-        return f"Rectangle({self.width}, {self.height})"
+        return "\n".join("#" * self.width for _ in range(self.height))
