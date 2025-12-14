@@ -1,9 +1,14 @@
 #!/usr/bin/python3
-"""Module to check instance type"""
+"""Defines a Square class that inherits from Rectangle"""
 
-Rectangle = __import__('9-rectangle.py').Rectangle
+Rectangle = __import__('9-rectangle').Rectangle
 
 
-def square(size):
-    """Create a square instance of Rectangle"""
-    return Rectangle(size, size)
+class Square(Rectangle):
+    """Square class inheriting from Rectangle"""
+
+    def __init__(self, size):
+        """Initialize a Square with size"""
+        self.integer_validator("size", size)
+        self.__size = size
+        super().__init__(size, size)
