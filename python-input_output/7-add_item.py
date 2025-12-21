@@ -1,4 +1,4 @@
-kk#!/usr/bin/python3
+#!/usr/bin/python3
 """
 Adds all command-line arguments to a Python list
 and saves them to add_item.json in JSON format.
